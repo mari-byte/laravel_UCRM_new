@@ -8,6 +8,7 @@ use App\Http\Controllers\InertiaTestController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\AnalysisController;
 
 
 /*
@@ -20,6 +21,8 @@ use App\Http\Controllers\PurchaseController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('analysis', [AnalysisController::class, 'index'])->name('analysis');
 
 Route::resource('/items', ItemController::class)->middleware(['auth', 'verified']);
 
@@ -47,7 +50,6 @@ Route::get('/inertia/index', [InertiaTestController::class, 'index'])->name('ine
 Route::get('/inertia/create', [InertiaTestController::class, 'create'])->name('inertia.create');
 Route::post('/inertia', [InertiaTestController::class, 'store'])->name('inertia.store');
 Route::get('/inertia/show/{id}', [InertiaTestController::class, 'show'])->name('inertia.show');
-//Route::delete('/inertia/{id}',[InertiaTestController::class,'delete'])->name('inertia.delete');
 
 Route::delete('/inertia/{id}', [InertiaTestController::class, 'delete'])->name('inertia.delete');
 
